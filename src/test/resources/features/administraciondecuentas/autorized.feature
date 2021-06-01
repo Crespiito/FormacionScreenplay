@@ -5,12 +5,12 @@ Feature: administrar en el proceso la autorizacion de cuentas
 
   @AutorizedExitosa
   Scenario Outline: Autorizacion exitosa de una cuenta
-    Given el usuario carga la informacion de la url <url>
+    Given el usuario carga la informacion de la url <url> , <usuario> y <contrasena>
     When el ingresa los datos <usuario> y <contrasena>
     Then el obtiene una respuesta exitosa <respuestaEsperada>
     Examples: Datos de autenticacion
       | url                                      | usuario        | contrasena | respuestaEsperada |
-      | https://demoqa.com/Account/v1/Authorized | PruebaServicio | Prueba123* | 200               |
+      |Account/v1/Authorized | PruebaServicio | Prueba123* | 200               |
 
   @AutorizedUsuarioNoEncontradoAutorized
   Scenario Outline: Autorizacion de usuario no encontrado
@@ -19,4 +19,4 @@ Feature: administrar en el proceso la autorizacion de cuentas
     Then el obtiene una respuesta de usuario no encontrado <respuestaEsperada>
     Examples: Datos de autenticacion
       | url                                      | usuario        | contrasena | respuestaEsperada |
-      | https://demoqa.com/Account/v1/Authorized | PruebaServicio | Prueba123* | 404               |
+      |Account/v1/Authorized | PruebaServicio | Prueba123* | 404               |
